@@ -1,0 +1,117 @@
+{
+  "teamName": "Pinewharf Print Co.",
+  "locale": "en",
+  "timeZone": "America/New_York",
+  "owner": { "username": "pinewharf-admin", "name": "Demo Admin" },
+  "memberPassword": "pinewharf-demo-1",
+  "groups": [
+    { "name": "Sales", "description": "Quotes, customers, pipeline" },
+    { "name": "Marketing", "description": "Campaigns, brand, content" },
+    { "name": "Finance", "description": "Costs, margins, budget" }
+  ],
+  "people": [
+    { "username": "nina", "name": "Nina Okafor", "group": "Sales", "note": "new teammate, first day" },
+    { "username": "sam", "name": "Sam Reyes", "group": "Sales", "note": "Sales lead; edits the price list" },
+    { "username": "maya", "name": "Maya Lindqvist", "group": "Marketing", "note": "Marketing lead" },
+    { "username": "felix", "name": "Felix Brandt", "group": "Finance", "note": "Finance lead" }
+  ],
+  "rules": [
+    {
+      "path": "shared",
+      "mode": "set",
+      "rules": [{ "everyone": true, "access": "read" }],
+      "why": "everyone reads the company files; nobody edits them by default (the product's default is everyone-write)"
+    },
+    {
+      "path": "shared/pricing",
+      "rules": [{ "user": "sam", "access": "write" }],
+      "why": "only the Sales lead edits prices"
+    },
+    {
+      "path": "shared/quotes",
+      "rules": [{ "group": "Sales", "access": "write" }],
+      "why": "Sales saves quotes; everyone else reads them"
+    },
+    {
+      "path": "skills/finance",
+      "limited": true,
+      "rules": [{ "group": "Finance", "access": "read" }],
+      "why": "restricted team skills: only Finance sees and uses them"
+    }
+  ],
+  "uploaders": [
+    { "path": "shared/pricing", "username": "sam" },
+    { "path": "shared/quotes", "username": "sam" },
+    { "path": "groups/Sales", "username": "sam" },
+    { "path": "groups/Marketing", "username": "maya" },
+    { "path": "groups/Finance", "username": "felix" }
+  ],
+  "settings": { "aiSubagents": false, "timeZone": "America/New_York" },
+  "profile": {
+    "website": "https://pinewharf.example",
+    "name": "Pinewharf Print Co.",
+    "oneLine": "Pinewharf prints business cards, roll-up banners and cotton tote bags for local businesses, schools and clubs.",
+    "products": "Business cards (from 100), roll-up banners 85 x 200 cm, screen-printed cotton tote bags (from 50)",
+    "audience": "Small local businesses, schools and clubs that reorder",
+    "tone": ["Friendly", "Short and concrete", "No hype"],
+    "avoid": "Superlatives (best, number one) and prices that are not in the price list",
+    "sources": []
+  },
+  "checks": [
+    {
+      "username": "nina",
+      "opens": [
+        "shared/handbook/onboarding-guide.md",
+        "shared/pricing/price-list-2026.md",
+        "shared/pricing/discount-policy.md",
+        "shared/quotes/Q-2026-0044-harbor-dental.md",
+        "groups/Sales/pipeline.md"
+      ],
+      "closed": [
+        "groups/Finance/supplier-costs-2026.md",
+        "groups/Finance/margin-report-2026-q3q4.md",
+        "groups/Marketing/brand-voice.md"
+      ],
+      "writable": ["shared/quotes"],
+      "readOnly": ["shared/pricing"],
+      "hiddenInTree": [{ "path": "groups", "names": ["Finance", "Marketing"] }, { "path": "skills", "names": ["finance"] }],
+      "skills": ["quote-from-price-list"]
+    },
+    {
+      "username": "sam",
+      "opens": ["shared/pricing/price-list-2026.md", "groups/Sales/customer-notes.md"],
+      "closed": ["groups/Finance/supplier-costs-2026.md", "groups/Marketing/q4-campaign-plan.md"],
+      "writable": ["shared/pricing", "shared/quotes"],
+      "skills": ["quote-from-price-list"]
+    },
+    {
+      "username": "maya",
+      "opens": [
+        "shared/handbook/company-overview.md",
+        "shared/pricing/price-list-2026.md",
+        "groups/Marketing/q4-campaign-plan.md"
+      ],
+      "closed": [
+        "groups/Finance/supplier-costs-2026.md",
+        "groups/Finance/margin-report-2026-q3q4.md",
+        "groups/Finance/q4-budget.md",
+        "groups/Sales/pipeline.md"
+      ],
+      "readOnly": ["shared/pricing", "shared/quotes"],
+      "hiddenInTree": [{ "path": "groups", "names": ["Finance", "Sales"] }, { "path": "skills", "names": ["finance"] }],
+      "skills": ["quote-from-price-list"]
+    },
+    {
+      "username": "felix",
+      "opens": [
+        "groups/Finance/supplier-costs-2026.md",
+        "groups/Finance/margin-report-2026-q3q4.md",
+        "groups/Finance/q4-budget.md",
+        "shared/quotes/Q-2026-0047-pier-9-gym.md"
+      ],
+      "closed": ["groups/Sales/pipeline.md", "groups/Marketing/brand-voice.md"],
+      "readOnly": ["shared/pricing", "shared/quotes"],
+      "skills": ["quote-from-price-list", "margin-check"]
+    }
+  ]
+}

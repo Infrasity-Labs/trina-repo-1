@@ -1,0 +1,4 @@
+.demo/
+.trina-ax-kit/
+node_modules/
+*.log

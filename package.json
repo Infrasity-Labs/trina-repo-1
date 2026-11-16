@@ -1,0 +1,16 @@
+{
+  "name": "trina-ax-team-permissions",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A sample company for a self-hosted Trina AX server: shared files, team folders with permissions, team skills.",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "up": "node scripts/demo.mjs up",
+    "verify": "node scripts/demo.mjs verify",
+    "lint": "node scripts/lint-fixtures.mjs",
+    "down": "node scripts/demo.mjs down",
+    "reset": "node scripts/demo.mjs reset"
+  }
+}
