@@ -1,0 +1,16 @@
+name: Bug report
+description: Something in this repo does not work
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes: { label: Trina AX version, placeholder: "0.5.9" }
+    validations: { required: true }
+  - type: input
+    id: host
+    attributes: { label: Host (OS, Docker or source run, kernel), placeholder: "Ubuntu 24.04, Docker 27, kernel 6.8" }
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes: { label: What happened, description: Command, expected result, actual result. Paste the `up` or `verify` output. Remove tokens and setup codes. }
+    validations: { required: true }

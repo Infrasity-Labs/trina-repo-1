@@ -1,14 +1,35 @@
-# Trina AX: team & permissions
+<div align="center">
 
-A sample company for a self-hosted [Trina AX](https://github.com/trina-app/trina-ax) server. Shared company files (price list, past quotes), team folders with per-person permissions (finance files only for Finance) and two team skills.
+<img src="docs/media/banner.svg" width="100%" alt="Trina AX: team and permissions. Same AI, different people, different files.">
 
-**What it shows:** a new teammate asks for a quote and gets one built from the company price list. A marketing user cannot see the Finance folder, and neither can their AI.
+<br>
 
-> Every person, customer, price and document here is fictional. `pinewharf.example` is a reserved example domain. Not endorsed by Anthropic or OpenAI. Claude is a trademark of Anthropic.
+**A sample company for a self-hosted [Trina AX](https://github.com/trina-app/trina-ax) server.**<br>
+Shared company files, team folders with per-person permissions, and team skills, ready to run and easy to copy.
+
+[![lint](https://github.com/OWNER/trina-ax-team-permissions/actions/workflows/lint.yml/badge.svg)](https://github.com/OWNER/trina-ax-team-permissions/actions/workflows/lint.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-2f7d55.svg)](LICENSE)
+![Trina AX 0.5.9](https://img.shields.io/badge/Trina%20AX-0.5.9-ff7a45)
+![Node 20+](https://img.shields.io/badge/node-%E2%89%A520-16422f)
+
+[The company](#the-company) · [Run it](#run-it) · [Try it](#try-it) · [What was tested](#what-was-tested) · [Make it your own](#make-it-your-own) · [Contributing](CONTRIBUTING.md)
+
+</div>
+
+> Every person, customer, price and document here is fictional. `pinewharf.example` is a reserved example domain. This project is not endorsed by Anthropic or OpenAI. Claude is a trademark of Anthropic.
+
+## What it shows
+
+1. **A new teammate gets a quote from the company price list.** Nina, on her first day, asks for a quote. The `quote-from-price-list` skill makes the AI read the price list, the discount policy and a past quote for the same customer, and write the quote in the company's format.
+2. **A marketing user cannot open Finance, and neither can their AI.** Maya's Files view has no Finance folder at all. Asking her AI about margins finds nothing, because the AI can only open what the person asking can open.
+
+<div align="center">
+<img src="docs/media/how-it-works.svg" width="860" alt="Nina and Maya ask the same AI. Each can only open the files their own access allows; Finance files and the Finance skill are closed to both.">
+</div>
 
 ## The company
 
-**Pinewharf Print Co.** prints business cards, roll-up banners and tote bags. Quotes depend on quantity tiers, so an AI answer is easy to check.
+**Pinewharf Print Co.** prints business cards, roll-up banners and tote bags. Quotes depend on quantity tiers, so an AI answer is easy to check by hand.
 
 | Sign in as | Who | Group | Can open |
 |---|---|---|---|
@@ -22,7 +43,7 @@ Members' password: `pinewharf-demo-1` (public, fictional). The owner's password 
 
 ### Who can open what
 
-`R` read, `W` write, `-` not visible (answers like a missing path).
+`R` read, `W` write, `-` not visible (answers exactly like a path that does not exist).
 
 | Path | Nina | Sam | Maya | Felix |
 |---|---|---|---|---|
@@ -35,52 +56,68 @@ Members' password: `pinewharf-demo-1` (public, fictional). The owner's password 
 | skill `quote-from-price-list` | use | use | use | use |
 | skill `margin-check` (`skills/finance/`) | - | - | - | use |
 
-The rules behind it are in [`company/company.json`](company/company.json). Trina AX's default is that everyone can *write* `shared/`; this repo replaces that with read-only and adds write for Sam on `pricing` and for Sales on `quotes`.
+The rules behind this table are in [`company/company.json`](company/company.json). Trina AX's default lets everyone *write* `shared/`; this repo replaces that with read-only, then adds write for Sam on `pricing` and for Sales on `quotes`. `skills/finance` is a *limited* folder readable only by the Finance group.
+
+### Screens
+
+| Maya's Files: Groups | Admin: the rules | Admin: what Maya can open |
+|---|---|---|
+| <img src="docs/media/maya-files-groups.png" alt="Maya's Files view: Groups lists only Marketing"> | <img src="docs/media/admin-folder-rules.png" alt="Folder permissions: four rules set by this repo"> | <img src="docs/media/admin-what-maya-can-open.png" alt="What Maya can open: Marketing as Editor, Finance under Can't open"> |
+
+Screenshots are from a source-run Trina AX 0.5.9 development server, so they carry its orange "Development mode" banner.
 
 ## Run it
 
-Needs [Docker](https://docs.docker.com/get-docker/) on a host the Trina AX Docker kit supports, Node 20+ and git. **Read [docs/hosts.md](docs/hosts.md) first:** the Trina AX sandbox needs a Linux kernel with cgroup v2 and Landlock. Docker Desktop on Windows (WSL2, default kernel) does not meet that, and `up` stops with a message saying so.
+You need [Docker](https://docs.docker.com/get-docker/) on a host the Trina AX Docker kit supports, Node 20+ and git.
+
+> **Check [docs/hosts.md](docs/hosts.md) first.** Trina AX sandboxes every AI turn, which needs a Linux kernel with cgroup v2 and Landlock. Docker Desktop on Windows (WSL2, default kernel) does not meet that: `up` stops with a message saying so. Use a Linux machine or a small cloud VM.
 
 ```sh
-git clone <this repo> && cd trina-ax-team-permissions
-node scripts/demo.mjs up        # fetches the official kit (v0.5.9), starts the server, seeds the company, checks it
+git clone https://github.com/OWNER/trina-ax-team-permissions.git
+cd trina-ax-team-permissions
+node scripts/demo.mjs up
 ```
 
-Then open `http://127.0.0.1:47830` (use `127.0.0.1`, not `localhost`) and sign in as any person above. Files, permissions and skills work now, with no AI account.
+`up` fetches the official Trina AX Docker kit (v0.5.9), starts the server, creates the team, seeds the company, and runs `verify`. Then open `http://127.0.0.1:47830` (use `127.0.0.1`, not `localhost`) and sign in as any person above. Files, permissions and skills work now, with no AI account.
 
 The first start builds an image and downloads Trina AX's AI engine (about 300 MB), whether or not you use AI. No timings are claimed yet: none were measured on a supported host.
 
-### Make the AI answer (your own Claude account)
+### Connect your own Claude account (for the AI)
 
 ```sh
-claude setup-token                              # prints a token
+claude setup-token                              # prints a token; save it to token.txt
 node scripts/demo.mjs ai-token < token.txt      # hands it to the server
 ```
 
 AI usage is billed to the account you connect, and the context a request needs goes to Anthropic. This software setting does not grant permission under Anthropic's terms: use an account and plan authorized for it.
 
-Sign in as `nina` and send:
-
-```
-/quote-from-price-list Harbor Dental wants 500 double-sided business cards and 2 roll-up banners. Can you quote it?
-```
-
-Expected: cards 500 × $0.22 = $110.00, banners 2 × $89.00 = $178.00, subtotal $288.00, no discount, shipping $15.00, total **$303.00**, quote number Q-2026-0048, and a note that Harbor Dental's earlier order was 250 cards at $0.30. It is a draft: a person reads it before it goes out. AI answers vary; check the sources it shows.
-
-Then sign in as `maya` and ask `What is our margin on business cards? Check the Finance files if you need to.` Her AI cannot open Finance, so it has nothing to answer with.
-
-More: [docs/walkthrough.md](docs/walkthrough.md) (admin screens, changing a rule live).
-
 ### Other commands
 
 ```sh
 node scripts/demo.mjs verify         # who can open what, no AI involved
+node scripts/demo.mjs status         # container and health
 node scripts/demo.mjs down           # stop, keep the data
 node scripts/demo.mjs reset --yes    # delete this demo's container, volume and .demo/ (nothing else)
 node scripts/lint-fixtures.mjs       # arithmetic and leak checks on the sample files, no server needed
 ```
 
-The demo runs as its own Docker Compose project (`pinewharf-trina-ax`) on port 47830, so it does not touch a Trina AX you already run.
+The demo runs as its own Docker Compose project (`pinewharf-trina-ax`) on port 47830, so it never touches a Trina AX you already run.
+
+## Try it
+
+1. **Maya can't see Finance.** Sign in as `maya` → Files → Groups. Only Marketing is listed.
+2. **The admin view.** Sign in as `pinewharf-admin` → team name (top left) → Admin → Folder permissions → *What a person can open* → Maya.
+3. **Change a rule live.** As the owner, share `Groups/Finance` with Maya; Finance appears on her next load. Remove her and it is gone.
+4. **Ask for a quote (needs the AI).** Sign in as `nina` and send:
+
+   ```
+   /quote-from-price-list Harbor Dental wants 500 double-sided business cards and 2 roll-up banners. Can you quote it?
+   ```
+
+   Expected: cards 500 × $0.22 = $110.00, banners 2 × $89.00 = $178.00, subtotal $288.00, no discount, shipping $15.00, total **$303.00**, quote number Q-2026-0048, and a note that Harbor Dental's earlier order was 250 cards at $0.30. It is a draft: a person reads it before it goes out. AI answers vary, so check the sources it shows.
+5. **Ask for margins (needs the AI).** As `maya`: `What is our margin on business cards? Check the Finance files if you need to.` As `felix`: the same question.
+
+Step-by-step with screens: [docs/walkthrough.md](docs/walkthrough.md). Recording a demo GIF: [docs/recording.md](docs/recording.md).
 
 ## What was tested
 
@@ -92,15 +129,13 @@ The demo runs as its own Docker Compose project (`pinewharf-trina-ax`) on port 4
 
 - Self-hosting is not offline: what a request needs goes to the AI provider you connect.
 - Server operators can read stored files and chats. Removing someone's access does not erase answers they already saw.
-- Development mode (used for some of the tests above) has no OS-level isolation; the Docker kit does. Do not judge the AI lockout in development mode: the AI there runs as your OS user.
+- Development mode has no OS-level isolation; the Docker kit does. Do not judge the AI lockout in development mode: the AI there runs as your OS user.
 - MCP servers, Google Drive, Slack, rooms, scheduled tasks, projects and guests are not part of this example.
 - Trina AX's HTTP API is not a stable public API. The scripts pin v0.5.9 (`scripts/lib/config.mjs`) and `verify` fails loudly if the server behaves differently.
 
 ## Make it your own
 
-Everything the seed does comes from [`company/company.json`](company/company.json) (people, groups, folder rules, uploaders, settings, company profile and the checks `verify` runs) and the Markdown under [`company/files/`](company/files/). Change those, run `node scripts/lint-fixtures.mjs`, then `up` on a fresh server. The seed code in `scripts/lib/` has no company-specific names.
-
-## Layout
+Everything the seed does comes from [`company/company.json`](company/company.json) (people, groups, folder rules, uploaders, settings, company profile and the checks `verify` runs) and the Markdown under [`company/files/`](company/files/). Change those, run `node scripts/lint-fixtures.mjs`, then `up` on a fresh server. The code in `scripts/lib/` has no company-specific names.
 
 ```
 company/company.json     people, groups, rules, checks
@@ -108,9 +143,12 @@ company/files/           shared/, groups/, skills/ at their team paths
 scripts/demo.mjs         up | seed | verify | ai-token | status | logs | down | reset
 scripts/lib/             API client, Docker kit helpers, seed, verify
 scripts/lint-fixtures.mjs
-docs/                    hosts, walkthrough, recording guide, PRD
-docs/PRD.md             the product requirements for this repo
+docs/                    hosts, walkthrough, recording guide, PRD, media
 ```
+
+## Contributing, conduct, security
+
+See [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) and [SECURITY.md](SECURITY.md). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 

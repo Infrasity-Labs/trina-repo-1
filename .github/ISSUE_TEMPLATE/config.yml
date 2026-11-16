@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Problem with Trina AX itself
+    url: https://github.com/trina-app/trina-ax/issues
+    about: Bugs in the product (not in this example repo) go to the Trina AX project.
