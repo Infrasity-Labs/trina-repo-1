@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="500" viewBox="0 0 1040 500" role="img" aria-label="Architecture: company.json and company/files feed seed and verify; demo.mjs runs the Docker kit, seed and verify; seed and verify call the Trina AX HTTP API through api.mjs.">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#14110f" fill-opacity=".7"/></marker></defs>
+<rect width="1040" height="500" rx="18" fill="#f6f2ea"/>
+<rect x="0.75" y="0.75" width="1038.5" height="498.5" rx="17.5" fill="none" stroke="#e3dccd" stroke-width="1.5"/>
+<text x="40" y="52" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#14110f" letter-spacing="-0.8">The company is data. The scripts stay the same.</text>
+<text x="40" y="80" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#57524a">Edit the left column to make your own company; the middle column seeds and checks it on a Trina AX server.</text>
+
+<!-- column headers -->
+<text x="40" y="124" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#e8591c">YOUR COMPANY · EDIT THIS</text>
+<text x="300" y="124" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#6b645a">SCRIPTS · LEAVE AS IS</text>
+<text x="840" y="124" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#6b645a">TRINA AX SERVER</text>
+
+<!-- company column -->
+<rect x="40" y="140" width="210" height="190" rx="16" fill="#fff1e8" stroke="#ffb596" stroke-width="1.5"/>
+<rect x="56" y="158" width="178" height="70" rx="12" fill="#fff" stroke="#ffb596" stroke-width="1.5"/>
+<text x="72" y="183" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#14110f">company.json</text>
+<text x="72" y="214" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6b645a">people, groups, rules</text>
+<rect x="56" y="244" width="178" height="70" rx="12" fill="#fff" stroke="#ffb596" stroke-width="1.5"/>
+<text x="72" y="269" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#14110f">company/files/</text>
+<text x="72" y="300" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6b645a">shared/ groups/ skills/</text>
+<rect x="40" y="356" width="210" height="104" rx="16" fill="#fff" stroke="#e9e3d8" stroke-width="1.5"/>
+<text x="56" y="384" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#14110f">lint-fixtures.mjs</text>
+<text x="56" y="408" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6b645a">recomputes every quote and</text>
+<text x="56" y="426" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6b645a">margin total; no server needed</text>
+<path d="M145 356V332" fill="none" stroke="#14110f" stroke-opacity=".45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+
+<!-- scripts column -->
+<rect x="300" y="140" width="460" height="320" rx="16" fill="#fbf9f5" stroke="#e3dccd" stroke-width="1.5"/>
+<rect x="320" y="158" width="420" height="64" rx="12" fill="#fff" stroke="#e9e3d8" stroke-width="1.5"/>
+<text x="336" y="183" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#14110f">demo.mjs</text>
+<text x="336" y="208" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6b645a">up · seed · verify · ai-token · status · down · reset</text>
+<text x="320" y="252" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1" fill="#6b645a">lib/</text>
+<rect x="320" y="262" width="128" height="70" rx="12" fill="#fff" stroke="#e9e3d8" stroke-width="1.5"/>
+<text x="336" y="287" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#14110f">seed.mjs</text>
+<text x="336" y="318" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6b645a">people, rules, files</text>
+<rect x="461" y="262" width="128" height="70" rx="12" fill="#fff" stroke="#e9e3d8" stroke-width="1.5"/>
+<text x="477" y="287" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#14110f">verify.mjs</text>
+<text x="477" y="318" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6b645a">who opens what</text>
+<rect x="602" y="262" width="138" height="70" rx="12" fill="#fff" stroke="#e9e3d8" stroke-width="1.5"/>
+<text x="618" y="287" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#14110f">kit.mjs</text>
+<text x="618" y="318" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6b645a">Docker kit, health</text>
+<rect x="320" y="372" width="269" height="64" rx="12" fill="#fff" stroke="#e9e3d8" stroke-width="1.5"/>
+<text x="336" y="397" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#14110f">api.mjs</text>
+<text x="336" y="422" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6b645a">the only file that knows the HTTP paths</text>
+<path d="M384 222V262" fill="none" stroke="#14110f" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#ah)"/><path d="M525 222V262" fill="none" stroke="#14110f" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#ah)"/><path d="M671 222V262" fill="none" stroke="#14110f" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#ah)"/>
+<path d="M384 332V372" fill="none" stroke="#14110f" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#ah)"/><path d="M525 332V372" fill="none" stroke="#14110f" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#ah)"/>
+
+<!-- data -> scripts -->
+<path d="M250 297H320" fill="none" stroke="#e8591c" stroke-opacity=".9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#ah)"/>
+<text x="252" y="285" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#e8591c">read</text>
+
+<!-- server column -->
+<rect x="840" y="140" width="160" height="320" rx="16" fill="#fff" stroke="#ff5b1f" stroke-width="1.8"/>
+<svg x="858" y="158" width="38" height="38" viewBox="0 0 32 32"><defs><linearGradient id="lbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf9f4"/><stop offset="1" stop-color="#efe9de"/></linearGradient></defs><rect width="32" height="32" rx="7.2" fill="url(#lbg)"/><rect x=".25" y=".25" width="31.5" height="31.5" rx="6.95" fill="none" stroke="#14110f" stroke-opacity=".12" stroke-width=".5" data-edge=""/><g transform="translate(16 16) scale(0.88) translate(-16 -16)"><defs><mask id="lm" maskUnits="userSpaceOnUse" x="-8" y="-8" width="48" height="48"><rect x="-8" y="-8" width="48" height="48" fill="#fff"/><path d="M16 19.028L11.497 13.85L2.528 11.25L11.497 8.65L16 3.472L20.503 8.65L29.472 11.25L20.503 13.85Z" fill="#000" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M16 19.028L16 29.528" stroke="#000" stroke-width="1.65"/></mask></defs><g fill="#14110f" stroke="#14110f" stroke-width="0.25" stroke-linejoin="round" mask="url(#lm)"><path d="M29.472 11.25L20.503 13.85L20.503 23.35L29.472 20.75Z"/><path d="M11.497 13.85L2.528 11.25L2.528 20.75L11.497 23.35Z"/><path d="M16 19.028L11.497 13.85L11.497 23.35L16 28.528Z"/><path d="M20.503 13.85L16 19.028L16 28.528L20.503 23.35Z"/></g><path d="M16 19.028L11.497 13.85L2.528 11.25L11.497 8.65L16 3.472L20.503 8.65L29.472 11.25L20.503 13.85Z" fill="#ff5b1f"/></g></svg>
+<text x="906" y="176" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#14110f">Trina AX</text>
+<text x="906" y="194" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#6b645a">v0.5.9</text>
+<line x1="856" y1="216" x2="984" y2="216" stroke="#e9e3d8" stroke-width="1.5"/>
+<text x="856" y="244" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#14110f">Docker kit</text>
+<text x="856" y="262" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#6b645a">container, sandbox,</text>
+<text x="856" y="278" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#6b645a">own volume</text>
+<text x="856" y="352" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#14110f">HTTP API</text>
+<text x="856" y="370" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#6b645a">team, folders, rules,</text>
+<text x="856" y="386" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#6b645a">files, skills</text>
+<text x="856" y="438" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.5" fill="#e8591c">127.0.0.1:47830</text>
+
+<!-- scripts -> server -->
+<path d="M740 297H838" fill="none" stroke="#14110f" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#ah)"/>
+<text x="752" y="287" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#57524a">compose</text>
+<path d="M589 404H838" fill="none" stroke="#14110f" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#ah)"/>
+<text x="700" y="394" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#57524a">HTTP</text>
+</svg>

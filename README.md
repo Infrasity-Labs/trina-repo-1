@@ -30,7 +30,7 @@ Teams usually end up choosing between an AI that knows nothing and an AI that kn
 
 [Trina AX](https://github.com/trina-app/trina-ax) puts the company's files, skills and tools on one server. Claude Code and Codex run there for the whole team.
 
-- **Everyone starts from the same place.** Shared files and team skills are in every person's AI by default, so a first-day teammate works from the company's own price list and its way of writing quotes.
+- **Everyone starts from the same place.** Shared files and team skills are available to every person's AI by default, so a first-day teammate works from the company's own price list and its way of writing quotes.
 - **Every file is checked as the person who asked.** The AI can only open what that person may open. Where they have no access, the folder is not shown at all and a direct request answers like a missing file.
 - **Skills follow the same rules.** A team skill is visible and usable only by the people who can read its folder, and a skill never grants extra access.
 
@@ -39,7 +39,7 @@ Teams usually end up choosing between an AI that knows nothing and an AI that kn
 This repo is a small company set up that way, so you can see both effects and copy the setup. Pinewharf Print Co. is a print shop with Sales, Marketing and Finance teams.
 
 1. **A new teammate gets a quote from the company price list.** Nina, on her first day, asks for a quote. The `quote-from-price-list` skill makes the AI read the price list, the discount policy and a past quote for the same customer, and write the quote in the company's format.
-2. **A marketing user cannot open Finance, and neither can their AI.** Maya's Files view has no Finance folder at all. Asking her AI about margins finds nothing, because the AI can only open what the person asking can open.
+2. **A marketing user cannot open Finance, and neither can their AI.** Maya's Files view has no Finance folder at all, and a direct request for a Finance file answers like a missing one (`verify` checks both). Trina AX runs the AI as the person asking, so her AI has nothing from Finance to answer a margin question with. That last part is the product's documented behavior; this repo has not run the AI yet.
 
 <div align="center">
 <img src="docs/media/how-it-works.svg" width="860" alt="Nina and Maya ask the same AI. Each can only open the files their own access allows; Finance files and the Finance skill are closed to both.">
@@ -92,7 +92,7 @@ Captured from a source-run Trina AX 0.5.9 development server; the orange "Develo
 
 You need [Docker](https://docs.docker.com/get-docker/) on a host the Trina AX Docker kit supports, Node 20+ and git.
 
-> **Check [docs/hosts.md](docs/hosts.md) first.** Trina AX sandboxes every AI turn, which needs a Linux kernel with cgroup v2 and Landlock. Docker Desktop on Windows (WSL2, default kernel) does not meet that: `up` stops with a message saying so. Use a Linux machine or a small cloud VM.
+> **Check [docs/hosts.md](docs/hosts.md) first.** Trina AX sandboxes every AI turn, which needs a Linux kernel with cgroup v2 and Landlock. Docker Desktop on Windows (WSL2, default kernel) did not meet that on the machine this was tried on: `up` stopped with a message saying so. Use a Linux machine or a small cloud VM.
 
 ```sh
 git clone https://github.com/Infrasity-Labs/trina-repo-1.git
@@ -100,7 +100,7 @@ cd trina-repo-1
 node scripts/demo.mjs up
 ```
 
-`up` starts the Trina AX Docker kit (v0.5.9), starts the server, creates the team, seeds the company, and runs `verify`. Then open `http://127.0.0.1:47830` (use `127.0.0.1`, not `localhost`) and sign in as any person above. Files, permissions and skills work now, with no AI account.
+`up` fetches the Trina AX Docker kit (v0.5.9), starts the server, creates the team, seeds the company, and runs `verify`. Then open `http://127.0.0.1:47830` (use `127.0.0.1`, not `localhost`) and sign in as any person above. Files, permissions and skills work now, with no AI account.
 
 The first start builds an image and downloads Trina AX's AI engine (about 300 MB), whether or not you use AI. No timings are claimed yet: none were measured on a supported host.
 
@@ -123,13 +123,13 @@ node scripts/demo.mjs reset --yes    # delete this demo's container, volume and 
 node scripts/lint-fixtures.mjs       # arithmetic and leak checks on the sample files, no server needed
 ```
 
-The demo runs as its own Docker Compose project (`pinewharf-trina-ax`) on port 47830, so it never touches a Trina AX you already run.
+The demo runs as its own Docker Compose project (`pinewharf-trina-ax`) with its own volume and port 47830, so it does not touch the data of a Trina AX you already run. It does reuse the local image tag `trina-ax:0.5.9` that the stock kit also uses.
 
 ## Try it
 
 1. **Maya can't see Finance.** Sign in as `maya` → Files → Groups. Only Marketing is listed.
 2. **The admin view.** Sign in as `pinewharf-admin` → team name (top left) → Admin → Folder permissions → *What a person can open* → Maya.
-3. **Change a rule live.** As the owner, share `Groups/Finance` with Maya; Finance appears on her next load. Remove her and it is gone.
+3. **Change a rule live.** As the owner, share `Groups/Finance` with Maya; Finance appears on her next load. Remove her and it is gone. (The same change made through the API was checked this way; the Share dialog was opened but the grant was not clicked through. See the walkthrough.)
 4. **Ask for a quote (needs the AI).** Sign in as `nina` and send:
 
    ```
@@ -144,7 +144,8 @@ Step-by-step with screens: [docs/walkthrough.md](docs/walkthrough.md). Recording
 ## What was tested
 
 - `verify` (48 checks), a second `seed` run (nothing duplicated or changed), and a negative test (granting Maya Finance makes `verify` fail, revoking makes it pass) were run against a real Trina AX 0.5.9 server started from source in development mode.
-- The Docker path was run up to the container's installer on Docker Desktop (WSL2), where it stops because that kernel has no cgroup v2 ([docs/hosts.md](docs/hosts.md)). It has **not** been run to a healthy server on a supported host.
+- Only 0.5.9 was tested. Trina AX 0.5.10 to 0.5.13 are newer and were not tried here.
+- `up` was run on Docker Desktop (WSL2). The checks, the kit fetch, the image build and the container start work, and it then stops with a message that the host has no cgroup v2 ([docs/hosts.md](docs/hosts.md)). `reset --yes` removed the container, volume and network it had made. `up` has **not** been run to a healthy server on a supported host, so its seeding step has only been run through the dev-server route above.
 - The AI answers (the quote, Maya's margin question) have **not** been run yet. The skills load and are listed for the right people; whether the model reproduces the golden quote is checked by [docs/recording.md](docs/recording.md).
 
 ## What this does not show
@@ -161,30 +162,9 @@ The company is data. `seed.mjs`, `verify.mjs`, `api.mjs` and `kit.mjs` contain n
 
 ### How it fits together
 
-```mermaid
-flowchart LR
-  subgraph data["Your company (edit this)"]
-    J["company/company.json<br/>people, groups, rules, checks"]
-    F["company/files/<br/>shared/ groups/ skills/"]
-  end
-  subgraph code["scripts/ (leave this)"]
-    D["demo.mjs<br/>up, seed, verify, ..."]
-    K["lib/kit.mjs<br/>Docker kit"]
-    S["lib/seed.mjs"]
-    V["lib/verify.mjs"]
-    A["lib/api.mjs<br/>HTTP client"]
-  end
-  L["lint-fixtures.mjs"]
-  T[("Trina AX server")]
-  J --> S
-  F --> S
-  J --> V
-  J --> L
-  F --> L
-  D --> K --> T
-  D --> S --> A --> T
-  D --> V --> A
-```
+<div align="center">
+<img src="docs/media/architecture.svg" width="900" alt="Architecture: company.json and company/files feed seed and verify; demo.mjs runs the Docker kit, seed and verify; seed and verify reach the Trina AX HTTP API through api.mjs.">
+</div>
 
 `up` runs these in order: check Docker, git and Node, fetch the Trina AX kit, start the server and wait for it to be healthy, then create the team and owner. After that it seeds groups, people, folder rules, files, settings and the company profile, and finally runs `verify`.
 

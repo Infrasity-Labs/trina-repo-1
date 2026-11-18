@@ -1,6 +1,6 @@
 # Walkthrough
 
-The screens and menu paths below were checked on a running Trina AX 0.5.9 server seeded by this repo (a source-run development server, which is why the orange "Development mode" banner shows). Exceptions are marked. The screens are Trina AX's own UI (English). Sign in at `http://127.0.0.1:<port>` with the usernames from the README.
+The screens and menu paths below were checked on a running Trina AX 0.5.9 server seeded by this repo (a source-run development server; the screenshots crop off its "Development mode" strip). Exceptions are marked. The screens are Trina AX's own UI (English). Sign in at `http://127.0.0.1:<port>` with the usernames from the README.
 
 ## 1. See what Maya sees (no AI needed)
 
