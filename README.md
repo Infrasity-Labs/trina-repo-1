@@ -157,16 +157,74 @@ Step-by-step with screens: [docs/walkthrough.md](docs/walkthrough.md). Recording
 
 ## Make it your own
 
-Everything the seed does comes from [`company/company.json`](company/company.json) (people, groups, folder rules, uploaders, settings, company profile and the checks `verify` runs) and the Markdown under [`company/files/`](company/files/). Change those, run `node scripts/lint-fixtures.mjs`, then `up` on a fresh server. The code in `scripts/lib/` has no company-specific names.
+The company is data. `seed.mjs`, `verify.mjs`, `api.mjs` and `kit.mjs` contain no company names, so changing the data seeds a different company. Three spots still carry Pinewharf and need a quick edit: the Compose project name and port in `scripts/lib/config.mjs`, the sample prompt that `up` prints at the end (`scripts/demo.mjs`), and the price and margin checks in `scripts/lint-fixtures.mjs`.
+
+### How it fits together
+
+```mermaid
+flowchart LR
+  subgraph data["Your company (edit this)"]
+    J["company/company.json<br/>people, groups, rules, checks"]
+    F["company/files/<br/>shared/ groups/ skills/"]
+  end
+  subgraph code["scripts/ (leave this)"]
+    D["demo.mjs<br/>up, seed, verify, ..."]
+    K["lib/kit.mjs<br/>Docker kit"]
+    S["lib/seed.mjs"]
+    V["lib/verify.mjs"]
+    A["lib/api.mjs<br/>HTTP client"]
+  end
+  L["lint-fixtures.mjs"]
+  T[("Trina AX server")]
+  J --> S
+  F --> S
+  J --> V
+  J --> L
+  F --> L
+  D --> K --> T
+  D --> S --> A --> T
+  D --> V --> A
+```
+
+`up` runs these in order: check Docker, git and Node, fetch the Trina AX kit, start the server and wait for it to be healthy, then create the team and owner. After that it seeds groups, people, folder rules, files, settings and the company profile, and finally runs `verify`.
+
+### Repository layout
 
 ```
-company/company.json     people, groups, rules, checks
-company/files/           shared/, groups/, skills/ at their team paths
-scripts/demo.mjs         up | seed | verify | ai-token | status | logs | down | reset
-scripts/lib/             API client, Docker kit helpers, seed, verify
-scripts/lint-fixtures.mjs
-docs/                    hosts, walkthrough, recording guide, PRD, media
+.
+├── company/                     the example company: all of the data
+│   ├── company.json             people, groups, folder rules, uploaders, settings, profile, checks
+│   └── files/                   seeded at the same paths in the team's folder tree
+│       ├── shared/              handbook/, pricing/, quotes/ (readable by everyone)
+│       ├── groups/              Sales/, Marketing/, Finance/ (one folder per group)
+│       └── skills/              quote-from-price-list/ and finance/margin-check/
+├── scripts/
+│   ├── demo.mjs                 CLI: up, seed, verify, ai-token, status, logs, down, reset
+│   ├── lint-fixtures.mjs        checks quote and margin arithmetic, cost leaks, skill headers
+│   └── lib/
+│       ├── config.mjs           pinned Trina AX version, project name, port, paths
+│       ├── kit.mjs              preflight, Docker kit fetch, compose, health wait
+│       ├── api.mjs              the only file that knows Trina AX's HTTP paths
+│       ├── seed.mjs             creates groups, people, rules and files from company.json
+│       └── verify.mjs           signs in as each person and checks the access matrix
+├── docs/
+│   ├── hosts.md                 which Docker hosts can run it
+│   ├── walkthrough.md           admin screens, changing a rule live
+│   ├── recording.md             how to record the demo GIF
+│   ├── PRD.md                   the requirements this repo was built from
+│   └── media/                   banner, diagram and screenshots
+├── .github/                     lint workflow, issue and pull request templates
+├── CONTRIBUTING.md  CODE_OF_CONDUCT.md  SECURITY.md  CHANGELOG.md  LICENSE
+└── package.json                 script shortcuts, no dependencies
 ```
+
+### Adapt it to your company
+
+1. **Edit the people and groups** in `company/company.json`. Every person is a member in one group; the owner is separate.
+2. **Set the folder rules.** A rule gives a person, a group or everyone read or write on a folder. `limited: true` cuts off what the folders above would grant, which is how `skills/finance` stays Finance-only.
+3. **Replace the files** under `company/files/`. Put them at the path where they should live: `shared/` for everyone, `groups/<name>/` for one team, `skills/<name>/SKILL.md` for team skills.
+4. **Write the checks.** For each person, list the paths they `opens`, the paths that must be `closed`, the folders that must be `hiddenInTree`, and the `skills` they can use. `verify` fails if the server disagrees.
+5. **Update the three Pinewharf spots** listed above, run `node scripts/lint-fixtures.mjs`, then `node scripts/demo.mjs up` on a fresh server.
 
 ## Contributing, conduct, security
 
