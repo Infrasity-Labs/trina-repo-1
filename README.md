@@ -4,10 +4,10 @@
 
 <br>
 
-**A sample company for a self-hosted [Trina AX](https://github.com/trina-app/trina-ax) server.**<br>
+**An example company for [Trina AX](https://github.com/trina-app/trina-ax).**<br>
 Shared company files, team folders with per-person permissions, and team skills, ready to run and easy to copy.
 
-[![lint](https://github.com/Infrasity-Labs/trina-repo-1/actions/workflows/lint.yml/badge.svg)](https://github.com/Infrasity-Labs/trina-repo-1/actions/workflows/lint.yml)
+[![lint](https://github.com/trina-app/trina-ax-team-permissions/actions/workflows/lint.yml/badge.svg)](https://github.com/trina-app/trina-ax-team-permissions/actions/workflows/lint.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-2f7d55.svg)](LICENSE)
 ![Trina AX 0.5.9](https://img.shields.io/badge/Trina%20AX-0.5.9-ff7a45)
 ![Node 20+](https://img.shields.io/badge/node-%E2%89%A520-16422f)
@@ -16,7 +16,7 @@ Shared company files, team folders with per-person permissions, and team skills,
 
 </div>
 
-> Every person, customer, price and document here is fictional. `pinewharf.example` is a reserved example domain. This project is not endorsed by Anthropic or OpenAI. Claude is a trademark of Anthropic.
+> Every person, customer, price and document here is fictional. `pinewharf.example` is a reserved example domain. Claude Code and Codex have their own terms; this project is not endorsed by Anthropic or OpenAI. Claude is a trademark of Anthropic.
 
 ## What it shows
 
@@ -73,12 +73,12 @@ You need [Docker](https://docs.docker.com/get-docker/) on a host the Trina AX Do
 > **Check [docs/hosts.md](docs/hosts.md) first.** Trina AX sandboxes every AI turn, which needs a Linux kernel with cgroup v2 and Landlock. Docker Desktop on Windows (WSL2, default kernel) does not meet that: `up` stops with a message saying so. Use a Linux machine or a small cloud VM.
 
 ```sh
-git clone https://github.com/Infrasity-Labs/trina-repo-1.git
-cd trina-repo-1
+git clone https://github.com/trina-app/trina-ax-team-permissions.git
+cd trina-ax-team-permissions
 node scripts/demo.mjs up
 ```
 
-`up` fetches the official Trina AX Docker kit (v0.5.9), starts the server, creates the team, seeds the company, and runs `verify`. Then open `http://127.0.0.1:47830` (use `127.0.0.1`, not `localhost`) and sign in as any person above. Files, permissions and skills work now, with no AI account.
+`up` starts the Trina AX Docker kit (v0.5.9), starts the server, creates the team, seeds the company, and runs `verify`. Then open `http://127.0.0.1:47830` (use `127.0.0.1`, not `localhost`) and sign in as any person above. Files, permissions and skills work now, with no AI account.
 
 The first start builds an image and downloads Trina AX's AI engine (about 300 MB), whether or not you use AI. No timings are claimed yet: none were measured on a supported host.
 
@@ -152,4 +152,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 ## License
 
-MIT for this repo ([LICENSE](LICENSE)). Trina AX is AGPL-3.0-only and is fetched at run time from its own repository, not copied here.
+[MIT](LICENSE).

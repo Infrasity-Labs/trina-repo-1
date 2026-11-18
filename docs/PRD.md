@@ -164,7 +164,7 @@ Owner: Admin › Folder permissions → "what a person can open" for Maya (no Fi
 
 ## 8. Technical approach
 
-### 8.1 Why the official Docker kit + REST seeding
+### 8.1 Why the Docker kit + REST seeding
 
 | Option | Real AI | Needs | Verdict |
 |---|---|---|---|
@@ -227,7 +227,7 @@ For each person in `company.json → checks`: `opens` return non-empty content; 
 
 ## 10. Non-functional
 
-Fictional-only data (`.example` domains). No credentials in repo; token never printed. Cross-platform via Node. MIT licence; Trina AX (AGPL-3.0) is fetched at run time, not bundled; "not endorsed by Anthropic or OpenAI; Claude is a trademark of Anthropic". The product says its HTTP API is not yet a stable public API: client isolated in `lib/api.mjs`, version pinned, `verify` fails loudly on drift.
+Fictional-only data (`.example` domains). No credentials in repo; token never printed. Cross-platform via Node. MIT licence; "not endorsed by Anthropic or OpenAI; Claude is a trademark of Anthropic". The product says its HTTP API is not yet a stable public API: client isolated in `lib/api.mjs`, version pinned, `verify` fails loudly on drift.
 
 ## 11. GIF spec
 

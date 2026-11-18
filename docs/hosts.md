@@ -1,6 +1,6 @@
 # Which hosts can run this
 
-This repo starts the **official Trina AX Docker kit** (v0.5.9). Trina AX isolates every AI turn with a sandbox (bubblewrap + Landlock + seccomp) and an nftables rule, so the Docker host's Linux kernel matters. Requirements, from the product's own Docker guide: cgroup v2, Landlock, nftables, unprivileged user namespaces (kernel 6.12+ recommended), `kernel.yama.ptrace_scope=1` on the host, 4 GB RAM for the container. On Ubuntu 24.04 hosts also `sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0`.
+This repo starts the Trina AX Docker kit (v0.5.9). Trina AX isolates every AI turn with a sandbox (bubblewrap + Landlock + seccomp) and an nftables rule, so the Docker host's Linux kernel matters. Requirements, from the product's own Docker guide: cgroup v2, Landlock, nftables, unprivileged user namespaces (kernel 6.12+ recommended), `kernel.yama.ptrace_scope=1` on the host, 4 GB RAM for the container. On Ubuntu 24.04 hosts also `sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0`.
 
 `node scripts/demo.mjs up` stops early with a specific message when the container says it cannot start.
 

@@ -1,4 +1,4 @@
-// Docker plumbing: fetches the official Trina AX docker/ kit at the pinned release and runs docker compose on it.
+// Docker plumbing: fetches the Trina AX docker/ kit at the pinned release and runs docker compose on it.
 import { spawn } from 'node:child_process'
 import fs from 'node:fs'
 import net from 'node:net'
@@ -21,7 +21,7 @@ export async function preflight() {
   const major = Number(process.versions.node.split('.')[0])
   if (major < 20) throw new Error(`Node 20 or newer is required (this is ${process.versions.node}).`)
   const git = await run('git', ['--version']).catch(() => null)
-  if (!git || git.code !== 0) throw new Error('git is required (it fetches the official Trina AX docker kit).')
+  if (!git || git.code !== 0) throw new Error('git is required (it fetches the Trina AX docker kit).')
   const d = await run('docker', ['info', '--format', '{{.ServerVersion}}']).catch(() => null)
   if (!d) throw new Error('Docker was not found. Install Docker (https://docs.docker.com/get-docker/) and try again.')
   if (d.code !== 0) throw new Error('The Docker daemon is not running. Start Docker Desktop / the docker service and try again.')

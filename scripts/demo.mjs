@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Pinewharf Print Co.: a sample company for a self-hosted Trina AX server.
 //
-//   node scripts/demo.mjs up          fetch the official kit, start the server, create the team, seed it, verify
+//   node scripts/demo.mjs up          fetch the Docker kit, start the server, create the team, seed it, verify
 //   node scripts/demo.mjs seed        seed (again) a server that is already running
 //                                     (--base http://127.0.0.1:19761 --setup-token <code> for a server not started by `up`)
 //   node scripts/demo.mjs verify      check who can open what (no AI involved)

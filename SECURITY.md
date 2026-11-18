@@ -8,7 +8,7 @@ This repo contains fictional sample data and scripts that talk to a Trina AX ser
 - a script that deletes or changes something outside this demo's own Docker Compose project (`pinewharf-trina-ax`)
 - sample content that exposes a real person's or company's data
 
-Vulnerabilities in Trina AX itself belong to the [Trina AX security policy](https://github.com/trina-app/trina-ax/security).
+Vulnerabilities in the Trina AX product are reported through the [Trina AX security policy](https://github.com/trina-app/trina-ax/security).
 
 ## Reporting
 
