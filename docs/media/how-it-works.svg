@@ -1,54 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="440" viewBox="0 0 1040 440" role="img" aria-label="Nina and Maya ask the same AI; each can only open what their own access allows.">
-  <defs>
-    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#f6f2ea" fill-opacity="0.08"/></pattern>
-    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f6f2ea" fill-opacity="0.7"/></marker>
-    <marker id="ok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#4fbf6a"/></marker>
-    <marker id="no" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ff6a33"/></marker>
-  </defs>
-  <style>
-    text{font-family:Geist,'Segoe UI',ui-sans-serif,system-ui,Helvetica,Arial,sans-serif}
-    .m{font-family:'Geist Mono',ui-monospace,Consolas,monospace}
-    .t{font-size:15px;fill:#f6f2ea} .s{font-size:12.5px;fill:#b3aaa0}
-    .h{font-size:12.5px;font-weight:600;letter-spacing:2px;fill:#ff8a5c}
-  </style>
-  <rect width="1040" height="440" rx="14" fill="#0e0c0b"/>
-  <rect width="1040" height="440" rx="14" fill="url(#dots)"/>
-  <rect x="0.5" y="0.5" width="1039" height="439" rx="13.5" fill="none" stroke="#f6f2ea" stroke-opacity="0.14"/>
-  <text x="40" y="44" class="h m">ONE SERVER · ONE PERMISSION CHECK · EVERY FILE THE AI OPENS</text>
-  <!-- people -->
-  <rect x="40" y="80" width="190" height="86" rx="10" fill="#151210" stroke="#f6f2ea" stroke-opacity="0.22"/>
-  <text x="56" y="110" class="t" font-weight="700">Nina · Sales</text>
-  <text x="56" y="132" class="s">"Quote 500 cards + 2 banners"</text>
-  <text x="56" y="150" class="s m">/quote-from-price-list</text>
-  <rect x="40" y="250" width="190" height="86" rx="10" fill="#151210" stroke="#f6f2ea" stroke-opacity="0.22"/>
-  <text x="56" y="280" class="t" font-weight="700">Maya · Marketing</text>
-  <text x="56" y="302" class="s">"What's our margin on cards?"</text>
-  <text x="56" y="320" class="s">Check the Finance files</text>
-  <path d="M230 123h100" stroke="#f6f2ea" stroke-opacity="0.7" stroke-width="2" marker-end="url(#a)"/>
-  <path d="M230 293h100" stroke="#f6f2ea" stroke-opacity="0.7" stroke-width="2" marker-end="url(#a)"/>
-  <!-- server -->
-  <rect x="330" y="120" width="250" height="170" rx="12" fill="#1a1714" stroke="#ff6a33" stroke-width="1.5"/>
-  <rect x="330" y="120" width="250" height="6" rx="3" fill="#ff6a33"/>
-  <text x="355" y="156" font-size="16" font-weight="700" class="t">Trina AX server</text>
-  <text x="355" y="184" class="s">1. the asker's access is looked up</text>
-  <text x="355" y="206" class="s">2. every file read is checked</text>
-  <text x="355" y="228" class="s">3. skills load by the same rule</text>
-  <text x="355" y="266" class="s" style="fill:#ff8a5c;font-weight:600">"no access" looks like "not found"</text>
-  <!-- files -->
-  <rect x="680" y="70" width="320" height="40" rx="8" fill="#151210" stroke="#4fbf6a" stroke-opacity="0.7"/>
-  <text x="696" y="95" class="t m" style="font-size:13.5px">shared/pricing/price-list-2026.md</text>
-  <rect x="680" y="120" width="320" height="40" rx="8" fill="#151210" stroke="#4fbf6a" stroke-opacity="0.7"/>
-  <text x="696" y="145" class="t m" style="font-size:13.5px">shared/quotes/Q-2026-0044-harbor-dental</text>
-  <rect x="680" y="170" width="320" height="40" rx="8" fill="#151210" stroke="#4fbf6a" stroke-opacity="0.7"/>
-  <text x="696" y="195" class="t m" style="font-size:13.5px">groups/Sales/pipeline.md</text>
-  <rect x="680" y="250" width="320" height="40" rx="8" fill="#ff6a33" fill-opacity="0.1" stroke="#ff6a33"/>
-  <text x="696" y="275" class="t m" style="font-size:13.5px">groups/Finance/supplier-costs-2026.md</text>
-  <rect x="680" y="300" width="320" height="40" rx="8" fill="#ff6a33" fill-opacity="0.1" stroke="#ff6a33"/>
-  <text x="696" y="325" class="t m" style="font-size:13.5px">skills/finance/margin-check</text>
-  <path d="M580 160L676 100" stroke="#4fbf6a" stroke-width="2.5" fill="none" marker-end="url(#ok)"/>
-  <path d="M580 175L676 140" stroke="#4fbf6a" stroke-width="2.5" fill="none" marker-end="url(#ok)"/>
-  <path d="M580 235L676 270" stroke="#ff6a33" stroke-width="2.5" stroke-dasharray="6 5" fill="none" marker-end="url(#no)"/>
-  <path d="M580 250L676 320" stroke="#ff6a33" stroke-width="2.5" stroke-dasharray="6 5" fill="none" marker-end="url(#no)"/>
-  <circle cx="684" cy="384" r="5" fill="#4fbf6a"/><text x="698" y="389" class="s">Nina's AI can read it.</text>
-  <circle cx="684" cy="408" r="5" fill="#ff6a33"/><text x="698" y="413" class="s">Closed to Nina and Maya; they cannot see it exists.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="460" viewBox="0 0 1040 460" role="img" aria-label="Nina and Maya ask the same AI. Each can only open the files their own access allows; the Finance folder and the Finance skill are closed to both.">
+<defs><filter id="sh" x="-20%" y="-40%" width="140%" height="200%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#ff5b1f" flood-opacity="0.28"/></filter></defs>
+<rect width="1040" height="460" rx="18" fill="#f6f2ea"/>
+<rect x="0.75" y="0.75" width="1038.5" height="458.5" rx="17.5" fill="none" stroke="#e3dccd" stroke-width="1.5"/>
+<text x="40" y="52" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#14110f" letter-spacing="-0.8">Each person sees only what they may open.</text>
+<text x="40" y="80" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#57524a">Every file the AI opens is checked as the person who asked.</text>
+<rect x="40" y="128" width="272" height="70" rx="20" fill="#14110f"/><text x="62" y="155" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="0.6" fill="#ff8a5c">SALES · FIRST DAY</text><text x="62" y="182" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">“Quote 500 cards + 2 banners”</text>
+<rect x="40" y="268" width="272" height="70" rx="20" fill="#14110f"/><text x="62" y="295" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="0.6" fill="#ff8a5c">MARKETING</text><text x="62" y="322" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">“What’s our margin on cards?”</text>
+<path d="M318 163h26" stroke="#14110f" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/><path d="M338 157l8 6-8 6" fill="none" stroke="#14110f" stroke-opacity=".55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M318 303h26" stroke="#14110f" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/><path d="M338 297l8 6-8 6" fill="none" stroke="#14110f" stroke-opacity=".55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="356" y="120" width="250" height="236" rx="18" fill="#fff" stroke="#e9e3d8" stroke-width="1.5"/>
+<svg x="376" y="138" width="34" height="34" viewBox="0 0 32 32"><defs><linearGradient id="lbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf9f4"/><stop offset="1" stop-color="#efe9de"/></linearGradient></defs><rect width="32" height="32" rx="7.2" fill="url(#lbg)"/><rect x=".25" y=".25" width="31.5" height="31.5" rx="6.95" fill="none" stroke="#14110f" stroke-opacity=".12" stroke-width=".5" data-edge=""/><g transform="translate(16 16) scale(0.88) translate(-16 -16)"><defs><mask id="lm" maskUnits="userSpaceOnUse" x="-8" y="-8" width="48" height="48"><rect x="-8" y="-8" width="48" height="48" fill="#fff"/><path d="M16 19.028L11.497 13.85L2.528 11.25L11.497 8.65L16 3.472L20.503 8.65L29.472 11.25L20.503 13.85Z" fill="#000" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M16 19.028L16 29.528" stroke="#000" stroke-width="1.65"/></mask></defs><g fill="#14110f" stroke="#14110f" stroke-width="0.25" stroke-linejoin="round" mask="url(#lm)"><path d="M29.472 11.25L20.503 13.85L20.503 23.35L29.472 20.75Z"/><path d="M11.497 13.85L2.528 11.25L2.528 20.75L11.497 23.35Z"/><path d="M16 19.028L11.497 13.85L11.497 23.35L16 28.528Z"/><path d="M20.503 13.85L16 19.028L16 28.528L20.503 23.35Z"/></g><path d="M16 19.028L11.497 13.85L2.528 11.25L11.497 8.65L16 3.472L20.503 8.65L29.472 11.25L20.503 13.85Z" fill="#ff5b1f"/></g></svg>
+<text x="420" y="162" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#14110f" letter-spacing="-0.3">Trina AX server</text>
+<text x="376" y="206" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" fill="#57524a">1  Look up who is asking</text>
+<text x="376" y="236" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" fill="#57524a">2  Check every file it reads</text>
+<text x="376" y="266" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" fill="#57524a">3  Load skills by the same rule</text>
+<rect x="376" y="292" width="210" height="40" rx="20" fill="#ff5b1f"/>
+<text x="481" y="317" text-anchor="middle" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="800" fill="#14110f">No access = not found</text>
+<rect x="640" y="104" width="360" height="48" rx="14" fill="#fff" stroke="#e9e3d8" stroke-width="1.5"/><path transform="translate(660 117)" d="M0 3.5A2.5 2.5 0 0 1 2.5 1H8l2.4 2.8H21.5A2.5 2.5 0 0 1 24 6.3v12.2A2.5 2.5 0 0 1 21.5 21h-19A2.5 2.5 0 0 1 0 18.5z" fill="none" stroke="#6b645a" stroke-width="1.8" stroke-linejoin="round"/><text x="696" y="135" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#14110f">shared/pricing/price-list</text><g transform="translate(962 118)"><circle cx="10" cy="10" r="10" fill="#2b7a3d"/><path d="M5.5 10.3l3 3 6-6.3" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<rect x="640" y="160" width="360" height="48" rx="14" fill="#fff" stroke="#e9e3d8" stroke-width="1.5"/><path transform="translate(660 173)" d="M0 3.5A2.5 2.5 0 0 1 2.5 1H8l2.4 2.8H21.5A2.5 2.5 0 0 1 24 6.3v12.2A2.5 2.5 0 0 1 21.5 21h-19A2.5 2.5 0 0 1 0 18.5z" fill="none" stroke="#6b645a" stroke-width="1.8" stroke-linejoin="round"/><text x="696" y="191" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#14110f">shared/quotes/Q-2026-0044</text><g transform="translate(962 174)"><circle cx="10" cy="10" r="10" fill="#2b7a3d"/><path d="M5.5 10.3l3 3 6-6.3" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<rect x="640" y="216" width="360" height="48" rx="14" fill="#fff" stroke="#e9e3d8" stroke-width="1.5"/><path transform="translate(660 229)" d="M0 3.5A2.5 2.5 0 0 1 2.5 1H8l2.4 2.8H21.5A2.5 2.5 0 0 1 24 6.3v12.2A2.5 2.5 0 0 1 21.5 21h-19A2.5 2.5 0 0 1 0 18.5z" fill="none" stroke="#6b645a" stroke-width="1.8" stroke-linejoin="round"/><text x="696" y="247" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#14110f">groups/Sales/pipeline</text><g transform="translate(962 230)"><circle cx="10" cy="10" r="10" fill="#2b7a3d"/><path d="M5.5 10.3l3 3 6-6.3" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<rect x="640" y="288" width="360" height="48" rx="14" fill="#fff1e8" stroke="#ffb596" stroke-width="1.5"/><path transform="translate(660 301)" d="M0 3.5A2.5 2.5 0 0 1 2.5 1H8l2.4 2.8H21.5A2.5 2.5 0 0 1 24 6.3v12.2A2.5 2.5 0 0 1 21.5 21h-19A2.5 2.5 0 0 1 0 18.5z" fill="none" stroke="#6b645a" stroke-width="1.8" stroke-linejoin="round"/><text x="696" y="319" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#14110f">groups/Finance/supplier-costs</text><g transform="translate(962 302)" fill="none" stroke="#14110f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="14" height="10" rx="2.5" fill="#ff5b1f" stroke="#ff5b1f"/><path d="M6 9V6.5a4 4 0 0 1 8 0V9"/></g>
+<rect x="640" y="344" width="360" height="48" rx="14" fill="#fff1e8" stroke="#ffb596" stroke-width="1.5"/><path transform="translate(660 357)" d="M0 3.5A2.5 2.5 0 0 1 2.5 1H8l2.4 2.8H21.5A2.5 2.5 0 0 1 24 6.3v12.2A2.5 2.5 0 0 1 21.5 21h-19A2.5 2.5 0 0 1 0 18.5z" fill="none" stroke="#6b645a" stroke-width="1.8" stroke-linejoin="round"/><text x="696" y="375" font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#14110f">skills/finance/margin-check</text><g transform="translate(962 358)" fill="none" stroke="#14110f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="14" height="10" rx="2.5" fill="#ff5b1f" stroke="#ff5b1f"/><path d="M6 9V6.5a4 4 0 0 1 8 0V9"/></g>
+<g font-family="Geist, Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#57524a">
+<circle cx="648" cy="410" r="6" fill="#2b7a3d"/><text x="662" y="415">Nina’s AI can read it</text>
+<circle cx="830" cy="410" r="6" fill="#ff5b1f"/><text x="844" y="415">Closed to Nina and Maya</text>
+</g>
 </svg>
