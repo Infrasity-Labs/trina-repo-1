@@ -12,11 +12,31 @@ Shared company files, team folders with per-person permissions, and team skills,
 ![Trina AX 0.5.9](https://img.shields.io/badge/Trina%20AX-0.5.9-ff7a45)
 ![Node 20+](https://img.shields.io/badge/node-%E2%89%A520-16422f)
 
-[The company](#the-company) · [Run it](#run-it) · [Try it](#try-it) · [What was tested](#what-was-tested) · [Make it your own](#make-it-your-own) · [Contributing](CONTRIBUTING.md)
+[The problem](#the-problem) · [How Trina solves it](#how-trina-solves-it) · [This example](#this-example) · [Run it](#run-it) · [Try it](#try-it) · [Make it your own](#make-it-your-own) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
-## What it shows
+## The problem
+
+Two things go wrong when a company starts using AI.
+
+**1. Everyone's AI starts from nothing.** A new hire asks for a quote and their AI has never seen the price list, the discount policy or the quotes the team already sent. The few people who spent months tuning their own setup get good answers. Everyone else gets a question back: *"Who are they?"*
+
+**2. The fix creates a new risk.** Hand the AI the company's files and it can read whatever it can reach, for whoever asks. A marketing intern could ask about margins and get an answer built from the Finance folder.
+
+Teams usually end up choosing between an AI that knows nothing and an AI that knows too much.
+
+## How Trina solves it
+
+[Trina AX](https://github.com/trina-app/trina-ax) puts the company's files, skills and tools on one server. Claude Code and Codex run there for the whole team.
+
+- **Everyone starts from the same place.** Shared files and team skills are in every person's AI by default, so a first-day teammate works from the company's own price list and its way of writing quotes.
+- **Every file is checked as the person who asked.** The AI can only open what that person may open. Where they have no access, the folder is not shown at all and a direct request answers like a missing file.
+- **Skills follow the same rules.** A team skill is visible and usable only by the people who can read its folder, and a skill never grants extra access.
+
+## This example
+
+This repo is a small company set up that way, so you can see both effects and copy the setup. Pinewharf Print Co. is a print shop with Sales, Marketing and Finance teams.
 
 1. **A new teammate gets a quote from the company price list.** Nina, on her first day, asks for a quote. The `quote-from-price-list` skill makes the AI read the price list, the discount policy and a past quote for the same customer, and write the quote in the company's format.
 2. **A marketing user cannot open Finance, and neither can their AI.** Maya's Files view has no Finance folder at all. Asking her AI about margins finds nothing, because the AI can only open what the person asking can open.
