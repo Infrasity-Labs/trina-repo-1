@@ -1,34 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="Trina AX: team and permissions. Same AI, different people.">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0f2f24"/><stop offset="1" stop-color="#16422f"/>
-    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff6a33"/><stop offset="1" stop-color="#ff8a4c"/></linearGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#f6f2ea" fill-opacity="0.09"/></pattern>
+    <radialGradient id="glow" cx="0.78" cy="0.5" r="0.55"><stop offset="0" stop-color="#ff6a33" stop-opacity="0.22"/><stop offset="1" stop-color="#ff6a33" stop-opacity="0"/></radialGradient>
   </defs>
-  <rect width="1280" height="320" rx="16" fill="url(#bg)"/>
-  <g font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
-    <text x="64" y="104" font-size="20" font-weight="600" letter-spacing="3" fill="#ff7a45">TRINA AX · EXAMPLE 1</text>
-    <text x="64" y="170" font-size="56" font-weight="700" fill="#f4ecd8">Team &amp; permissions</text>
-    <text x="64" y="216" font-size="26" fill="#cfe3d6">Same AI. Different people. Different files.</text>
-    <text x="64" y="268" font-size="17" fill="#8fb8a0">Pinewharf Print Co. · a sample company you can run</text>
+  <rect width="1280" height="320" rx="16" fill="#0e0c0b"/>
+  <rect width="1280" height="320" rx="16" fill="url(#dots)"/>
+  <rect width="1280" height="320" rx="16" fill="url(#glow)"/>
+  <rect x="0.5" y="0.5" width="1279" height="319" rx="15.5" fill="none" stroke="#f6f2ea" stroke-opacity="0.14"/>
+  <g font-family="Geist, 'Segoe UI', ui-sans-serif, system-ui, Helvetica, Arial, sans-serif">
+    <rect x="64" y="72" width="8" height="8" rx="2" fill="#ff6a33"/>
+    <text x="82" y="82" font-family="'Geist Mono', ui-monospace, Consolas, monospace" font-size="15" font-weight="600" letter-spacing="2.5" fill="#ff8a5c">TRINA AX  ·  EXAMPLE 1</text>
+    <text x="64" y="162" font-size="58" font-weight="700" letter-spacing="-1.5" fill="#f6f2ea">Team &amp; permissions</text>
+    <rect x="64" y="182" width="96" height="4" rx="2" fill="url(#acc)"/>
+    <text x="64" y="224" font-size="26" fill="#f6f2ea" fill-opacity="0.82">Same AI. Different people. Different files.</text>
+    <text x="64" y="272" font-size="17" fill="#b3aaa0">Pinewharf Print Co.  ·  a sample company you can run</text>
   </g>
-  <!-- three team folders -->
-  <g font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600">
-    <g transform="translate(790 70)">
-      <path d="M0 18a8 8 0 0 1 8-8h38l12 14h86a8 8 0 0 1 8 8v82a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8z" fill="#f4ecd8"/>
-      <text x="16" y="86" fill="#16422f">Sales</text>
-      <text x="16" y="108" font-size="12" font-weight="400" fill="#4a6b58">nina · sam</text>
+  <g font-family="Geist, 'Segoe UI', ui-sans-serif, system-ui, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">
+    <g transform="translate(800 66)">
+      <rect width="170" height="108" rx="12" fill="#151210" stroke="#f6f2ea" stroke-opacity="0.22"/>
+      <path d="M0 24h170" stroke="#f6f2ea" stroke-opacity="0.12"/>
+      <circle cx="16" cy="12" r="3" fill="#f6f2ea" fill-opacity="0.35"/><circle cx="28" cy="12" r="3" fill="#f6f2ea" fill-opacity="0.2"/>
+      <text x="16" y="70" fill="#f6f2ea">Sales</text>
+      <text x="16" y="92" font-size="12" font-weight="400" fill="#b3aaa0" font-family="'Geist Mono', ui-monospace, Consolas, monospace">nina · sam</text>
     </g>
-    <g transform="translate(980 70)">
-      <path d="M0 18a8 8 0 0 1 8-8h38l12 14h86a8 8 0 0 1 8 8v82a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8z" fill="#f4ecd8"/>
-      <text x="16" y="86" fill="#16422f">Marketing</text>
-      <text x="16" y="108" font-size="12" font-weight="400" fill="#4a6b58">maya</text>
+    <g transform="translate(990 66)">
+      <rect width="170" height="108" rx="12" fill="#151210" stroke="#f6f2ea" stroke-opacity="0.22"/>
+      <path d="M0 24h170" stroke="#f6f2ea" stroke-opacity="0.12"/>
+      <circle cx="16" cy="12" r="3" fill="#f6f2ea" fill-opacity="0.35"/><circle cx="28" cy="12" r="3" fill="#f6f2ea" fill-opacity="0.2"/>
+      <text x="16" y="70" fill="#f6f2ea">Marketing</text>
+      <text x="16" y="92" font-size="12" font-weight="400" fill="#b3aaa0" font-family="'Geist Mono', ui-monospace, Consolas, monospace">maya</text>
     </g>
-    <g transform="translate(885 190)">
-      <path d="M0 18a8 8 0 0 1 8-8h38l12 14h86a8 8 0 0 1 8 8v82a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8z" fill="#ff7a45"/>
-      <text x="16" y="86" fill="#0f2f24">Finance</text>
-      <text x="16" y="108" font-size="12" font-weight="400" fill="#4a1d0a">felix only</text>
-      <rect x="124" y="58" width="28" height="22" rx="4" fill="#0f2f24"/>
-      <path d="M130 58v-7a8 8 0 0 1 16 0v7" fill="none" stroke="#0f2f24" stroke-width="4"/>
+    <g transform="translate(895 196)">
+      <rect width="170" height="108" rx="12" fill="#1a1714" stroke="#ff6a33" stroke-width="1.5"/>
+      <rect x="0.75" y="0.75" width="168.5" height="22.5" rx="11" fill="#ff6a33" fill-opacity="0.12"/>
+      <circle cx="16" cy="12" r="3" fill="#ff6a33"/><circle cx="28" cy="12" r="3" fill="#ff6a33" fill-opacity="0.5"/>
+      <text x="16" y="70" fill="#ff8a5c">Finance</text>
+      <text x="16" y="92" font-size="12" font-weight="400" fill="#b3aaa0" font-family="'Geist Mono', ui-monospace, Consolas, monospace">felix only</text>
+      <g transform="translate(128 50)"><rect width="28" height="22" rx="5" fill="#ff6a33"/><path d="M6 0v-7a8 8 0 0 1 16 0v7" transform="translate(0 0)" fill="none" stroke="#ff6a33" stroke-width="3.5"/><circle cx="14" cy="11" r="2.6" fill="#14110f"/></g>
     </g>
   </g>
 </svg>
