@@ -62,9 +62,13 @@ The rules behind this table are in [`company/company.json`](company/company.json
 
 | Maya's Files: Groups | Admin: the rules | Admin: what Maya can open |
 |---|---|---|
-| <img src="docs/media/maya-files-groups.png" alt="Maya's Files view: Groups lists only Marketing"> | <img src="docs/media/admin-folder-rules.png" alt="Folder permissions: four rules set by this repo"> | <img src="docs/media/admin-what-maya-can-open.png" alt="What Maya can open: Marketing as Editor, Finance under Can't open"> |
+| <img src="docs/media/maya-files-groups.png" alt="Maya's Files view: Groups lists only Marketing"> | <img src="docs/media/admin-folder-rules.png" alt="Folder permissions: the four rules this repo sets"> | <img src="docs/media/admin-what-maya-can-open.png" alt="What Maya can open: Marketing as Editor, Finance under Can't open"> |
 
-Screenshots are from a source-run Trina AX 0.5.9 development server, so they carry its orange "Development mode" banner.
+| Nina's Team skills | Felix's Team skills |
+|---|---|
+| <img src="docs/media/nina-team-skills.png" alt="Nina sees one team skill: quote-from-price-list"> | <img src="docs/media/felix-team-skills.png" alt="Felix sees two team skills: margin-check and quote-from-price-list"> |
+
+Captured from a source-run Trina AX 0.5.9 development server; the orange "Development mode" strip at the top of the window is cropped out.
 
 ## Run it
 
