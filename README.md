@@ -7,7 +7,7 @@
 **An example company for [Trina AX](https://github.com/trina-app/trina-ax).**<br>
 Shared company files, team folders with per-person permissions, and team skills, ready to run and easy to copy.
 
-[![lint](https://github.com/trina-app/trina-ax-team-permissions/actions/workflows/lint.yml/badge.svg)](https://github.com/trina-app/trina-ax-team-permissions/actions/workflows/lint.yml)
+[![lint](https://github.com/Infrasity-Labs/trina-repo-1/actions/workflows/lint.yml/badge.svg)](https://github.com/Infrasity-Labs/trina-repo-1/actions/workflows/lint.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-2f7d55.svg)](LICENSE)
 ![Trina AX 0.5.9](https://img.shields.io/badge/Trina%20AX-0.5.9-ff7a45)
 ![Node 20+](https://img.shields.io/badge/node-%E2%89%A520-16422f)
@@ -77,8 +77,8 @@ You need [Docker](https://docs.docker.com/get-docker/) on a host the Trina AX Do
 > **Check [docs/hosts.md](docs/hosts.md) first.** Trina AX sandboxes every AI turn, which needs a Linux kernel with cgroup v2 and Landlock. Docker Desktop on Windows (WSL2, default kernel) does not meet that: `up` stops with a message saying so. Use a Linux machine or a small cloud VM.
 
 ```sh
-git clone https://github.com/trina-app/trina-ax-team-permissions.git
-cd trina-ax-team-permissions
+git clone https://github.com/Infrasity-Labs/trina-repo-1.git
+cd trina-repo-1
 node scripts/demo.mjs up
 ```
 
