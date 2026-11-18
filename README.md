@@ -16,8 +16,6 @@ Shared company files, team folders with per-person permissions, and team skills,
 
 </div>
 
-> Every person, customer, price and document here is fictional. `pinewharf.example` is a reserved example domain. Claude Code and Codex have their own terms; this project is not endorsed by Anthropic or OpenAI. Claude is a trademark of Anthropic.
-
 ## What it shows
 
 1. **A new teammate gets a quote from the company price list.** Nina, on her first day, asks for a quote. The `quote-from-price-list` skill makes the AI read the price list, the discount policy and a past quote for the same customer, and write the quote in the company's format.

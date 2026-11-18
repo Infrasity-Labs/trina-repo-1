@@ -222,12 +222,12 @@ For each person in `company.json → checks`: `opens` return non-empty content; 
 | FR6 | Quote skill: reads price list + policy + ≥1 similar quote; whole-quantity tier pricing; shipping/discount rules; flags discounts above 10%; no cost/margin use; standard format with next number; draft only. |
 | FR7 | Margin skill: Finance-only; supplier costs + quotes; arithmetic shown; draft for human review; no pricing decisions. |
 | FR8 | `verify` per §8.5; `lint-fixtures` per §6.3. |
-| FR9 | README: pitch, 4 commands, prerequisites, tested hosts, measured timings, AI connection, "shows / does not show", walkthrough, reset, license/trademark lines. GIF added only when it exists. |
+| FR9 | README: pitch, 4 commands, prerequisites, tested hosts, measured timings, AI connection, "shows / does not show", walkthrough, reset, license. GIF added only when it exists. |
 | FR10 | Versions pinned in `scripts/lib/config.mjs` (one constant). **[R]** (v1 put it in `company.json`.) |
 
 ## 10. Non-functional
 
-Fictional-only data (`.example` domains). No credentials in repo; token never printed. Cross-platform via Node. MIT licence; "not endorsed by Anthropic or OpenAI; Claude is a trademark of Anthropic". The product says its HTTP API is not yet a stable public API: client isolated in `lib/api.mjs`, version pinned, `verify` fails loudly on drift.
+Fictional-only data (`.example` domains). No credentials in repo; token never printed. Cross-platform via Node. MIT licence. The product says its HTTP API is not yet a stable public API: client isolated in `lib/api.mjs`, version pinned, `verify` fails loudly on drift.
 
 ## 11. GIF spec
 

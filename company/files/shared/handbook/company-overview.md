@@ -2,8 +2,6 @@
 
 Pinewharf is a small print shop in a (fictional) harbour town. We print business cards, roll-up banners and cotton tote bags for local businesses, schools and clubs. Most customers reorder.
 
-> Every person, customer and number in this workspace is invented for a demo. `pinewharf.example` is a reserved example domain.
-
 ## What we sell
 
 - **Business cards**: 100 and up
